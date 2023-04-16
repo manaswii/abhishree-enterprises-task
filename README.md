@@ -1,3 +1,8 @@
+### My Solution:
+- Made a script to do the required using the best OOPs practices
+- Hosted it on AWS and used a cronjob in linux to run it everyday at 12 am.
+
+
 # abhishree_enterprises_backend_internship_solution
 Software Developer Assignment
 
