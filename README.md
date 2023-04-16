@@ -1,6 +1,8 @@
 ### My Solution:
 - Made a script to do the required using the best OOPs practices
-- Hosted it on AWS and used a cronjob in linux to run it everyday at 12 am.
+- Hosted it on AWS and used a cronjob in linux to run it everyday at 12 am (screenshot showing relevant information added)
+![image](https://user-images.githubusercontent.com/85053597/232337892-ca35ba7d-c5fa-4013-bbbf-59f8e3018bd5.png)
+
 
 
 # abhishree_enterprises_backend_internship_solution
