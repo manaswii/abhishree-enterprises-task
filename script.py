@@ -54,12 +54,16 @@ class VergeScraper:
             for i, article in enumerate(article_list):
                 writer.writerow({'id': i, 'url': article['url'], 'headline': article['headline'], 'author': article['author'], 'date': article['date_posted']})
 
+
     def store_sqlite(self, article_list):
         conn = sqlite3.connect('articles.db')
         c = conn.cursor()
         c.execute('''CREATE TABLE IF NOT EXISTS articles
                      (id INTEGER PRIMARY KEY, url TEXT, headline TEXT, author TEXT, date TEXT)''')
+        res = c.execute('''SELECT id FROM articles ORDER BY id DESC LIMIT 1;''')
+        lastId = res.fetchone()[0]
         for i, article in enumerate(article_list):
+            lastId += 1
             c.execute("INSERT OR IGNORE INTO articles (id, url, headline, author, date) VALUES (?, ?, ?, ?, ?)", (i, article['url'], article['headline'], article['author'], article['date_posted']))
         conn.commit()
         conn.close()
