@@ -12,25 +12,25 @@ class VergeScraper:
 #   this function extracts the useful information from the bs4 tag.
     def extract_dicts_from_soup(self, soup):
         article_list = []
-        a_tags_title = soup.find_all('a', class_='group-hover:shadow-underline-franklin')
-        a_tags_autohors = soup.find_all('a',class_='text-gray-31 hover:shadow-underline-inherit dark:text-franklin mr-8')
-        span_tags_dates = soup.find_all('span',class_='text-gray-63 dark:text-gray-94')
-        a_tags_urls = soup.find_all('a',class_='group-hover:shadow-underline-franklin')
+        titles = soup.find_all('a', class_='group-hover:shadow-underline-franklin')
+        authors = soup.find_all('a',class_='text-gray-31 hover:shadow-underline-inherit dark:text-franklin mr-8')
+        dates = soup.find_all('span',class_='text-gray-63 dark:text-gray-94')
+        urls = soup.find_all('a',class_='group-hover:shadow-underline-franklin')
         titles = []
         authors = []
         dates = []
         urls = []
-        for a_tag_title in a_tags_title:
-            title = a_tag_title.text
+        for title in titles:
+            title = title.text
             titles.append(title)
-        for a_tag_author in a_tags_autohors:
-            author = a_tag_author.text
+        for author in authors:
+            author = author.text
             authors.append(author)
-        for span_tag_date in span_tags_dates:
-            date = span_tag_date.text
+        for date in dates:
+            date = date.text
             dates.append(date)
-        for a_tag_url in a_tags_urls:
-            url = self.url + a_tag_url['href']
+        for url in urls:
+            url = self.url + url['href']
             urls.append(url)
 
         for i in range(len(titles)):
